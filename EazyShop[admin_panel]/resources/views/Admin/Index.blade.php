@@ -3,13 +3,50 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>JuttBrand admin</title>
-  <link rel="shortcut icon" type="image/png" href="./admin/assets/images/logos/seodashlogo.png" />
-  <link rel="stylesheet" href="./admin/assets/css/styles.min.css" />
-  <link rel="stylesheet" href="./admin/assets/css/Productlisting.css" />
+  <title>JuttBrand Admin</title>
+  <link rel="shortcut icon" type="image/png" href="./img/favicon.png" style="object-fit: cover;" />
+  <link rel="stylesheet" href="./css/styles.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <style>
+
+    .icons{
+      font-size: 20px;
+    }
+
+    .recent-sales {
+      background: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .recent-sales table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .recent-sales th, .recent-sales td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    .recent-sales th {
+      background-color: #f8f9fa;
+      font-weight: 600;
+    }
+
+    .scroll-sidebar {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer & Edge */
+    }
+
+    .scroll-sidebar::-webkit-scrollbar {
+      display: none; /* Chrome, Safari */
+    }
+
+  </style>
+
 </head>
 <body>
-  <!--  Body Wrapper -->
+  <!-- Body Wrapper -->
   <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
     data-sidebar-position="fixed" data-header-position="fixed">
     <!-- Sidebar Start -->
@@ -17,8 +54,8 @@
       <!-- Sidebar scroll-->
       <div>
         <div class="brand-logo d-flex align-items-center justify-content-between">
-          <a href="./index.html" class="text-nowrap logo-img">
-            <img src="./admin/assets/images/logos/logo-light.svg" alt="" />
+          <a href="./index.html" class="text-nowrap logo-img mt-2 mx-0">
+            <img src="./img/logo2.png" height="70" width="150" style="object-fit: cover;" alt="" />
           </a>
           <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
             <i class="ti ti-x fs-8"></i>
@@ -32,7 +69,7 @@
               <span class="hide-menu">Home</span>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="/brand-admin" aria-expanded="false">
+              <a class="sidebar-link rounded-1 p-2 active" href="/brand-admin" aria-expanded="false">
                 <span>
                   <iconify-icon icon="solar:home-smile-bold-duotone" class="fs-6"></iconify-icon>
                 </span>
@@ -41,101 +78,104 @@
             </li>
             <li class="nav-small-cap">
               <i class="ti ti-dots nav-small-cap-icon fs-6"></i>
-              <span class="hide-menu">UI COMPONENTS</span>
+              <span class="hide-menu">COMPONENTS</span>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="/add-product" aria-expanded="false">
+              <a class="sidebar-link rounded-1 p-2" href="{{ route('add-product') }}" aria-expanded="false">
                 <span>
-                  <iconify-icon icon="solar:layers-minimalistic-bold-duotone" class="fs-6"></iconify-icon>
+                  <iconify-icon icon="solar:home-smile-bold-duotone" class="fs-6"></iconify-icon>
                 </span>
                 <span class="hide-menu">List Product</span>
               </a>
             </li>
+              <li class="sidebar-item">
+                <a class="sidebar-link rounded-1 p-2" href="{{route('add-category')}}" aria-expanded="false">
+                  <span>
+                    <iconify-icon icon="solar:danger-circle-bold-duotone" class="fs-6"></iconify-icon>
+                  </span>
+                  <span class="hide-menu">Add Category</span>
+                </a>
+              </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="{{route('add-category')}}" aria-expanded="false">
-                <span>
-                  <iconify-icon icon="solar:danger-circle-bold-duotone" class="fs-6"></iconify-icon>
-                </span>
-                <span class="hide-menu">Add Category</span>
-              </a>
-            </li>
-            <li class="sidebar-item">
-              <a class="sidebar-link" href="./ui-card.html" aria-expanded="false">
+              <a class="sidebar-link rounded-1 p-2" href="./ui-card.html" aria-expanded="false">
                 <span>
                   <iconify-icon icon="solar:bookmark-square-minimalistic-bold-duotone" class="fs-6"></iconify-icon>
                 </span>
-                <span class="hide-menu">Card</span>
+                <span class="hide-menu">Orders</span>
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./ui-forms.html" aria-expanded="false">
+              <a class="sidebar-link rounded-1 p-2" href="./ui-forms.html" aria-expanded="false">
                 <span>
                   <iconify-icon icon="solar:file-text-bold-duotone" class="fs-6"></iconify-icon>
                 </span>
-                <span class="hide-menu">Forms</span>
+                <span class="hide-menu">Customers</span>
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./ui-typography.html" aria-expanded="false">
+              <a class="sidebar-link rounded-1 p-2" href="./ui-typography.html" aria-expanded="false">
                 <span>
                   <iconify-icon icon="solar:text-field-focus-bold-duotone" class="fs-6"></iconify-icon>
                 </span>
-                <span class="hide-menu">Typography</span>
+                <span class="hide-menu">Sales</span>
               </a>
             </li>
+            <li class="nav-small-cap">
+              <iconify-icon icon="solar:menu-dots-linear" class="nav-small-cap-icon fs-6" class="fs-6"></iconify-icon>
+              <span class="hide-menu">Analytics</span>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link rounded-1 p-2" href="./authentication-login.html" aria-expanded="false">
+                <span>
+                  <iconify-icon icon="solar:login-3-bold-duotone" class="fs-6"></iconify-icon>
+                </span>
+                <span class="hide-menu">Reports</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link rounded-1 p-2" href="./authentication-register.html" aria-expanded="false">
+                <span>
+                  <iconify-icon icon="solar:user-plus-rounded-bold-duotone" class="fs-6"></iconify-icon>
+                </span>
+                <span class="hide-menu">Order Invoices</span>
+              </a>
+            </li>
+
+            <li class="nav-small-cap">
+              <iconify-icon icon="solar:menu-dots-linear" class="nav-small-cap-icon fs-6" class="fs-6"></iconify-icon>
+              <span class="hide-menu">Financial</span>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link rounded-1 p-2" href="./authentication-login.html" aria-expanded="false">
+                <span>
+                  <iconify-icon icon="solar:login-3-bold-duotone" class="fs-6"></iconify-icon>
+                </span>
+                <span class="hide-menu">Payments</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link rounded-1 p-2" href="./authentication-register.html" aria-expanded="false">
+                <span>
+                  <iconify-icon icon="solar:user-plus-rounded-bold-duotone" class="fs-6"></iconify-icon>
+                </span>
+                <span class="hide-menu">Shipping</span>
+              </a>
+            </li>
+
             <li class="nav-small-cap">
               <iconify-icon icon="solar:menu-dots-linear" class="nav-small-cap-icon fs-6" class="fs-6"></iconify-icon>
               <span class="hide-menu">AUTH</span>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./authentication-login.html" aria-expanded="false">
+              <a class="sidebar-link rounded-1 p-2" href="./authentication-login.html" aria-expanded="false">
                 <span>
                   <iconify-icon icon="solar:login-3-bold-duotone" class="fs-6"></iconify-icon>
                 </span>
-                <span class="hide-menu">Login</span>
+                <span class="hide-menu">Admin</span>
               </a>
             </li>
-            <li class="sidebar-item">
-              <a class="sidebar-link" href="./authentication-register.html" aria-expanded="false">
-                <span>
-                  <iconify-icon icon="solar:user-plus-rounded-bold-duotone" class="fs-6"></iconify-icon>
-                </span>
-                <span class="hide-menu">Register</span>
-              </a>
-            </li>
-            <li class="nav-small-cap">
-              <iconify-icon icon="solar:menu-dots-linear" class="nav-small-cap-icon fs-4" class="fs-6"></iconify-icon>
-              <span class="hide-menu">EXTRA</span>
-            </li>
-            <li class="sidebar-item">
-              <a class="sidebar-link" href="./icon-tabler.html" aria-expanded="false">
-                <span>
-                  <iconify-icon icon="solar:sticker-smile-circle-2-bold-duotone" class="fs-6"></iconify-icon>
-                </span>
-                <span class="hide-menu">Icons</span>
-              </a>
-            </li>
-            <li class="sidebar-item">
-              <a class="sidebar-link" href="./sample-page.html" aria-expanded="false">
-                <span>
-                  <iconify-icon icon="solar:planet-3-bold-duotone" class="fs-6"></iconify-icon>
-                </span>
-                <span class="hide-menu">Sample Page</span>
-              </a>
-            </li>
+
           </ul>
-          <div class="unlimited-access hide-menu bg-primary-subtle position-relative mb-7 mt-7 rounded-3"> 
-            <div class="d-flex">
-              <div class="unlimited-access-title me-3">
-                <h6 class="fw-semibold fs-4 mb-6 text-dark w-75">Upgrade to pro</h6>
-                <a href="#" target="_blank"
-                  class="btn btn-primary fs-2 fw-semibold lh-sm">Buy Pro</a>
-              </div>
-              <div class="unlimited-access-img">
-                <img src="../assets/images/backgrounds/rocket.png" alt="" class="img-fluid">
-              </div>
-            </div>
-          </div>
         </nav>
         <!-- End Sidebar navigation -->
       </div>
@@ -147,7 +187,7 @@
       <!--  Header Start -->
       <header class="app-header">
         <nav class="navbar navbar-expand-lg navbar-light">
-          <ul class="navbar-nav">
+          <!-- <ul class="navbar-nav">
             <li class="nav-item d-block d-xl-none">
               <a class="nav-link sidebartoggler nav-icon-hover" id="headerCollapse" href="javascript:void(0)">
                 <i class="ti ti-menu-2"></i>
@@ -159,13 +199,13 @@
                 <div class="notification bg-primary rounded-circle"></div>
               </a>
             </li>
-          </ul>
+          </ul> -->
           <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
             <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
               <a href="#" target="_blank"
-                class="btn btn-primary me-2"><span class="d-none d-md-block">Check Pro Version</span> <span class="d-block d-md-none">Pro</span></a>
+                class="btn btn-primary rounded-1 me-2"><span class="d-none d-md-block">View Orders</span> <span class="d-block d-md-none">Pro</span></a>
               <a href="#" target="_blank"
-                class="btn btn-success"><span class="d-none d-md-block">Download Free </span> <span class="d-block d-md-none">Free</span></a>
+                class="btn rounded-1" style="background-color: #fa561b"><span class="d-none d-md-block text-white">Generate Sale</span> <span class="d-block d-md-none">Free</span></a>
               <li class="nav-item dropdown">
                 <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown"
                   aria-expanded="false">
@@ -194,100 +234,116 @@
         </nav>
       </header>
       <!--  Header End -->
-
+      <!--  Main Content -->
       <div class="container-fluid">
-        <h2>List Product</h2>
-        <form>
-            <div class="form-group">
-                <label for="productName">Product Name</label>
-                <input type="text" id="productName" name="productName" placeholder="Enter product name" required>
-            </div>
-
-            <div class="form-group">
-                <label for="productDescription">Product Description</label>
-                <textarea id="productDescription" name="productDescription" placeholder="Enter product description" required></textarea>
-            </div>
-
-            <div class="form-group inline">
-                <div>
-                    <label for="stockQuantity">Stock Quantity</label>
-                    <input type="number" id="stockQuantity" name="stockQuantity" placeholder="Enter quantity" required>
+        <div class="row">
+          <!-- Quick Stats -->
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card">
+              <div class="card-body">
+                <div class="d-flex align-items-center justify-content-between">
+                  <div>
+                    <i class="icons fas fa-shopping-cart card-icon"></i>
+                    <h5 class="card-title mt-3">Total Orders</h5>
+                    <p class="card-value">1,234</p>
+                  </div>
                 </div>
-                <div>
-                    <label for="totalPrice">Total Price</label>
-                    <input type="number" id="totalPrice" name="totalPrice" placeholder="Enter price" required>
-                </div>
+              </div>
             </div>
-
-            <div class="form-group inline">
-                <div>
-                    <label for="discount">Discount (%)</label>
-                    <input type="number" id="discount" name="discount" placeholder="Enter discount">
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card">
+              <div class="card-body">
+                <div class="d-flex align-items-center justify-content-between">
+                  <div>
+                    <i class="icons fas fa-dollar-sign card-icon"></i>
+                    <h5 class="card-title mt-3">Total Revenue</h5>
+                    <p class="card-value">$12,345</p>
+                  </div>
                 </div>
-                <div>
-                    <label for="category">Category</label>
-                    <select id="category" name="category" required>
-                        <option value="">Select a category</option>
-                        <option value="electronics">Party Wear Lehengas</option>
-                        <option value="fashion">Festive Lehengas</option>
-                        <option value="home">Reception Lehengas</option>
-                        <option value="beauty">Engagement Lehengas</option>
-                        <option value="sports">Mehndi Lehengas</option>
-                        <option value="sports">Engagement Lehengas</option>
-                        <option value="sports">Beaded Lehengas</option>
-                        <option value="sports">Beaded Lehengas</option>
-                    </select>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card">
+              <div class="card-body">
+                <div class="d-flex align-items-center justify-content-between">
+                  <div>
+                    <i class="icons fas fa-users card-icon"></i>
+                    <h5 class="card-title mt-3">Total Customers</h5>
+                    <p class="card-value">5,678</p>
+                  </div>
                 </div>
+              </div>
             </div>
-
-            <div class="form-group">
-                <label for="productImage">Product Image</label>
-                <input type="file" id="productImage" name="productImage" required>
-            </div>
-
-            
-
-            <div class="form-group inline">
-                <div class="form-group">
-                    <label for="status">Status</label>
-                    <select id="status" name="status" required>
-                        <option value="">Select status</option>
-                        <option value="active">Active</option>
-                        <option value="inactive">Inactive</option>
-                    </select>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card">
+              <div class="card-body">
+                <div class="d-flex align-items-center justify-content-between">
+                  <div>
+                    <i class="icons fas fa-chart-line card-icon"></i>
+                    <h5 class="card-title mt-3">Sales Growth</h5>
+                    <p class="card-value">+12.5%</p>
+                  </div>
                 </div>
-                <div class="form-group">
-                    <label for="size">Size</label>
-                    <select id="size" name="size" required>
-                        <option value="">Select size</option>
-                        <option value="active">Small (x) </option>
-                        <option value="inactive">Medium (M) </option>
-                        <option value="inactive">Large (L) </option>
-                        <option value="inactive">Extra-Large (XL) </option>
-                    </select>
-                </div>
+              </div>
             </div>
-
-            <div class="form-group">
-                <label for="tags">Tags</label>
-                <input type="text" id="tags" name="tags" placeholder="Enter tags, separated by commas">
+          </div>
+        </div>
+      
+        <!-- Recent Sales -->
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="recent-sales">
+              <h5>Recent Sales</h5>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Order ID</th>
+                    <th>Customer</th>
+                    <th>Product</th>
+                    <th>Amount</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>#12345</td>
+                    <td>John Doe</td>
+                    <td>Product A</td>
+                    <td>$120</td>
+                    <td><span class="badge bg-success">Completed</span></td>
+                  </tr>
+                  <tr>
+                    <td>#12346</td>
+                    <td>Jane Smith</td>
+                    <td>Product B</td>
+                    <td>$80</td>
+                    <td><span class="badge bg-warning">Pending</span></td>
+                  </tr>
+                  <tr>
+                    <td>#12347</td>
+                    <td>Michael Johnson</td>
+                    <td>Product C</td>
+                    <td>$200</td>
+                    <td><span class="badge" style="background-color: #fa561b">Cancelled</span></td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
-
-            <button type="submit">Submit Product</button>
-        </form>
-    </div>
-
+          </div>
+        </div>
       </div>
     </div>
   </div>
-  <script src="./admin/assets/libs/jquery/dist/jquery.min.js"></script>
+  <!-- <script src="./admin/assets/libs/jquery/dist/jquery.min.js"></script>
   <script src="./admin/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   <script src="./admin/assets/libs/apexcharts/dist/apexcharts.min.js"></script>
-  <script src="./admin/assets/libs/simplebar/dist/simplebar.js"></script>
-  <script src="./admin/assets/js/sidebarmenu.js"></script>
+  <script src="./admin/assets/libs/simplebar/dist/simplebar.js"></script> -->
+  <!-- <script src="./admin/assets/js/sidebarmenu.js"></script>
   <script src="./admin/assets/js/app.min.js"></script>
-  <script src="./admin/assets/js/dashboard.js"></script>
+  <script src="./admin/assets/js/dashboard.js"></script> -->
   <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
 </body>
-
 </html>

@@ -221,7 +221,7 @@
                     </select>
                 </div>
             </div>
-            <button type="submit">Submit Category</button>
+            <button type="submit" style="background-color: #fa561b">Submit Category</button>
         </for>
     </div>
 
