@@ -15,7 +15,10 @@
 
 <header class="header">
     <nav class="navbar navbar-expand navbar-dark container">
-        <a class="navbar-brand" href="/">JuttBrand</a>
+        <!-- <a class="navbar-brand" href="/"></a> -->
+        <a href="./index.html" class="text-nowrap logo-img mt-2 mx-0">
+            <img src="./img/logo-side.png" height="40" width="150" style="object-fit: cover;" alt="" />
+          </a>
         <div class="collapse navbar-collapse" id="navbarNav">
             <form class="d-flex search-bar">
                 <input class="form-control rounded-0 shadow-none border-0" type="search" placeholder="Search products..." aria-label="Search">
