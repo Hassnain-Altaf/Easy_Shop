@@ -1,0 +1,1 @@
+<?php /**PATH D:\Development[web]\Laravel\JuttBrand [Ecommerce]\resources\views/Component/Footer.blade.php ENDPATH**/ ?>

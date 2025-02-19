@@ -1,0 +1,1 @@
+<?php /**PATH D:\Development[web]\Laravel\EazyShop\EazyShop[admin_panel]\resources\views/Component/Footer.blade.php ENDPATH**/ ?>
